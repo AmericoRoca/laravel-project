@@ -12,7 +12,34 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Models\Image;
+use App\Models\Comment;
 
 Route::get('/', function () {
+
+    $images = Image::all();
+    //$coments = Comment::all();
+
+    foreach($images as $image){
+        echo '<strong>Picture</strong>';
+        echo "<br>";
+       echo $image->image_path."<br>";
+       echo $image->description."<br>";
+        echo "<br>";
+        
+        if(count($image->comments)>=1){
+            echo '<strong>Comments</strong>';
+            foreach($image->comments as $comment){
+                echo $comment->user->name.''.$comment->user->surname.": ";
+                echo $comment->content."<br>";
+            }
+        }
+        echo '<strong>Likes:</strong>'.count($image->likes);
+       
+    }
+
+
+
+
     return view('welcome');
 });

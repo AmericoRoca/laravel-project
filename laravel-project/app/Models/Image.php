@@ -13,16 +13,16 @@ class Image extends Model
 
     //Relationship 1 to many
     public function comments(){
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     //Relationship 1 to many
     public function likes(){
-        return $this->hasMany('App\Like');
+        return $this->hasMany('App\Models\Like');
     }
 
     //Relationship many to 1
     public function user(){
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\Models\User','user_id');
     }
 }

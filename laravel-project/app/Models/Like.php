@@ -14,11 +14,11 @@ class Like extends Model
 
         //Relationship many to 1
         public function user(){
-            return $this->belongsTo('App\User','user_id');
+            return $this->belongsTo('App\Models\User','user_id');
         }
     
         //Relationship many to 1
         public function image(){
-            return $this->belongsTo('App\Image','image_id');
+            return $this->belongsTo('App\Models\Image','image_id');
         }
 }
