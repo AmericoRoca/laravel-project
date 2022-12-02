@@ -21,6 +21,8 @@ Route::get('/', function () {
     //$coments = Comment::all();
 
     foreach($images as $image){
+
+        
         echo '<strong>Picture</strong>';
         echo "<br>";
        echo $image->image_path."<br>";
@@ -35,6 +37,7 @@ Route::get('/', function () {
             }
         }
         echo '<strong>Likes:</strong>'.count($image->likes);
+        
        
     }
 
@@ -43,3 +46,7 @@ Route::get('/', function () {
 
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
