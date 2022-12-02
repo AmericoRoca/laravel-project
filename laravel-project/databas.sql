@@ -20,6 +20,8 @@ CONSTRAINT pk_users PRIMARY KEY(id)
 
 ) ENGINE=InnoDB;
 
+
+
 CREATE TABLE IF NOT EXISTS images(
 
 id  int(255) auto_increment not null,
