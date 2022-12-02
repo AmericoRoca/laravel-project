@@ -69,7 +69,7 @@
                                     <a class="dropdown-item" href="">
                                         Profile
                                     </a>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{route('config')}}">
                                         Config
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
