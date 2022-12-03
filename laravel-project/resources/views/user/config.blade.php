@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Configuration Account') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.update') }}">
+                    <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -92,6 +92,23 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div> -->
+                        <div class="row mb-3">
+                            @if(Auth::user()->image)
+                                <img src="{{route('user.avatar',['filename'=>Auth::user()->image])}}" class="avatar" />
+                            @endif
+                            <label for="image_path" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="image_path" type="file" class="form-control @error('image_path') is-invalid @enderror" name="image_path" value=""  autocomplete="image_path">
+
+                                @error('image_path')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            
+                        </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
