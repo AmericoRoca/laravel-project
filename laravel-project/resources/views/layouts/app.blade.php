@@ -15,6 +15,11 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!--Styles-->
+    <link href="{{asset('css/style.css')}}" rel="stylesheet"/>
+
+
 </head>
 <body>
     <div id="app">
@@ -50,12 +55,14 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="" class="nav-link">Home</a>
+                                <a href="{{route('home')}}" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Upload Image</a>
+                                <a href="{{ route('image.create') }}" class="nav-link">Upload Image</a>
                             </li>
-                            
+                            <li>
+                                @include('includes.avatar')
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
