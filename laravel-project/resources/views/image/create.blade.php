@@ -9,7 +9,7 @@
                 Upload new Image
             </div>
             <div class="card-body">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('image.save')}}" method="POST" enctype="multipart/form-data">
                     @csrf 
                     <div class="form-group row">
                         <label for="image_path" class="col-md-3 col-form-label text-md-right" >Image</label>
