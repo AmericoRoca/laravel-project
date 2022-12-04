@@ -3,10 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
         @include('includes.message')
 
-        @foreach($images as $image)  
             <div class="card pub-image">
                 <div class="card-header">
                     @if($image->user->image)
@@ -15,9 +14,7 @@
                     </div>
                     @endif
                     <div class="data-user">
-                        <a href="{{route('image.detail', ['id' => $image->id])}}">
-                         {{$image->user->name.''.$image->user->surname.' | @'.$image->user->nick}}
-                        </a>
+                     {{$image->user->name.''.$image->user->surname.' | @'.$image->user->nick}}
                     </div>
 
                 </div>
@@ -30,11 +27,6 @@
                     <div class="likes">
                         <img src="{{asset('img/heart-comrads2.png')}}" />
                     </div>
-                    <div class="comments">
-                        <a href="{{route('image.detail', ['id' => $image->id])}}"><img src="{{asset('img/comments-comrads.png')}}" /></a>
-                    </div>
-                    <br>
-                    <br>
                     <div class="description">
                         <span>{{$image->created_at}}</span>
                         <br>
@@ -42,15 +34,22 @@
                         <p>{{$image->description}}</p>
                         
                     </div>
+                    <div class="comments">
+                        <h2>Comments ({{count($image->comments)}})</h2>
+                        <hr>
+                        <form action="">
+                            @csrf
+                            <input type="hidden" name="image_id" value="{{$image->id}}">
+                            <p>
+                               <textarea class="form-control" name="content" required></textarea> 
+                            </p>
+                            <button type="submit" class="btn btn-success">Send</button>
+                        </form>
+                    </div>
                     
                 </div>
             </div>
             <br>
-             @endforeach
-            <!--pagination-->
-            <div class="clearfix">
-                {{$images->links()}}
-            </div>
     
         </div>
     </div>
