@@ -53,4 +53,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/config', [App\Http\Controllers\UserController::class, 'config'])->name('config');
 Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 Route::get('/user/avatar/{filename}', [App\Http\Controllers\UserController::class, 'getImage'])->name('user.avatar');
-
+Route::get('/upload-image', [App\Http\Controllers\ImageController::class, 'create'])->name('image.create');

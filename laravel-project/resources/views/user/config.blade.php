@@ -93,16 +93,16 @@
                             </div>
                         </div> -->
 
-                        <div class="form-group row">
-                             @if(Auth::user()->image)
-                                <img src="{{route('user.avatar',['filename'=>Auth::user()->image])}}" class="avatara" />
-                            @endif
-                        </div>
+                        
                         <div class="row mb-3">
                             
                             <label for="image_path" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
 
                             <div class="col-md-6">
+                                <div class="form-group row">
+                                    @include('includes.avatar')
+                                
+                            </div>
                                 <input id="image_path" type="file" class="form-control @error('image_path') is-invalid @enderror" name="image_path" value=""  autocomplete="image_path">
 
                                 @error('image_path')
