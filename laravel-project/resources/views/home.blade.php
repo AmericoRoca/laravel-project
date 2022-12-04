@@ -11,11 +11,11 @@
                 <div class="card-header">
                     @if($image->user->image)
                     <div class="container-avatar">
-                        <img src="{{route('user.avatar',['filename'=>$image->user->image])}}" />
+                        <img src="{{route('user.avatar',['filename'=>$image->user->image])}}" class="image-home" />
                     </div>
                     @endif
                     <div class="data-user">
-                        <a href="{{route('image.detail', ['id' => $image->id])}}">
+                        <a href="{{route('image.detail', ['id' => $image->id])}}" class="home-name">
                          {{$image->user->name.''.$image->user->surname.' | @'.$image->user->nick}}
                         </a>
                     </div>
@@ -33,10 +33,11 @@
                     <div class="comments">
                         <a href="{{route('image.detail', ['id' => $image->id])}}"><img src="{{asset('img/comments-comrads.png')}}" /></a>
                     </div>
-                    <br>
-                    <br>
-                    <div class="description">
+                    <div class="date">
                         <span>{{$image->created_at}}</span>
+                    </div>
+                    <div class="description">
+                        
                         <br>
                         <span class="nickname">{{'@'.$image->user->nick}}</span>
                         <p>{{$image->description}}</p>

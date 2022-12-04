@@ -55,7 +55,9 @@
     float: left;
     padding: 20px;
     padding-bottom: 10px;
-    padding-top: 10px;
+    padding-top: 0px;
+    margin-right: 20px;
+    margin-left: 15px;
 }
 .comments img{
     width: 20px;
@@ -64,13 +66,29 @@
     float: left;
     padding: 20px;
     padding-bottom: 10px;
-    padding-top: 10px;
-    padding-right: 5px;
+    padding-top: 0px;
+    padding-right: 0px;
+    margin-top: 10px;
 }
 .likes img{
     width: 20px;
 }
 
 .pub-image .comments{
-    padding: 20px;
+    padding: 10px;
+}
+.date{
+    padding-top: 10px;
+}
+.data-detail{
+    margin-top: 5px;
+    color: #C96A22;
+}
+.date-details{
+    margin-left: 15px;
+}
+.like-detail{
+    margin-top: 25px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
 }
