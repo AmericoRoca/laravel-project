@@ -92,10 +92,14 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div> -->
-                        <div class="row mb-3">
-                            @if(Auth::user()->image)
-                                <img src="{{route('user.avatar',['filename'=>Auth::user()->image])}}" class="avatar" />
+
+                        <div class="form-group row">
+                             @if(Auth::user()->image)
+                                <img src="{{route('user.avatar',['filename'=>Auth::user()->image])}}" class="avatara" />
                             @endif
+                        </div>
+                        <div class="row mb-3">
+                            
                             <label for="image_path" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
 
                             <div class="col-md-6">
