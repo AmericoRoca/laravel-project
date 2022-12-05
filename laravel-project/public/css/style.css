@@ -95,3 +95,8 @@
 .user-info-profile{
     float: left;
 }
+.item1:hover{
+    background-color: none;
+    color:#C96A22;
+}
+

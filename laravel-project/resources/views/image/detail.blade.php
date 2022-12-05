@@ -10,15 +10,16 @@
                 <div class="card-header">
                     @if($image->user->image)
                         <div class="container-avatar">
-                            <img src="{{route('user.avatar',['filename'=>$image->user->image])}}" />
+                            <img src="{{ route('user.avatar',['filename'=>$image->user->image]) }}" class="avatar" />
                         </div>
-                    @endif
+                        @endif
+
                         <div class="data-detail">
                             {{$image->user->name.''.$image->user->surname.' | @'.$image->user->nick}}
                         </div>
 
                 </div>
-
+                
                 <div class="card-body">
                     
                     <div class="image-container">
@@ -32,23 +33,24 @@
                                 <?php $user_like = true; ?>
                             @endif
                         @endforeach
-
-                        @if($user_like)
-                            <img src="{{asset('img/heart-comrads-orange.png')}}" data-id="{{$image->id}}" class="btn-like"/>
-                            @else
-                            <img src="{{asset('img/heart-comrads-black.png')}}" data-id="{{$image->id}}" class="btn-dislike"/>
-                        @endif
-                        {{count($image->likes)}}
+                        <div style="margin-top:17px; padding:0px; margin-bottom:0px;">
+                            @if($user_like)
+                                <img src="{{asset('img/heart-comrads-orange.png')}}" data-id="{{$image->id}}" class="btn-like"/>
+                                @else
+                                <img src="{{asset('img/heart-comrads-black.png')}}" data-id="{{$image->id}}" class="btn-dislike"/>
+                            @endif
+                            {{count($image->likes)}}
+                            <span class="date-details">{{$image->created_at}}</span>
+                        </div>
                     </div>
                     <br>
+                    <br>
                     <div class="description">
-                        <span class="date-details">{{$image->created_at}}</span>
                         <br>
                         <span class="nickname">{{'@'.$image->user->nick}}</span>
                         <p>{{$image->description}}</p>
                         
                     </div>
-                
                     <div class="comments">
                         <h2>Comments ({{count($image->comments)}})</h2>
                         <hr>
@@ -65,8 +67,13 @@
                                     @endif
                             </p>
                             
-                            <button type="submit" class="btn btn-success">Send</button>
+                            <button type="submit" class="btn btn-success" style="float:left; display:inline">Send</button>
                         </form>
+                        @if(Auth::user() && Auth::user()->id == $image->user->id)
+                            <div class="actions" style="width:250px">
+                                <a href="{{route('image.delete', ['id'=>$image->id])}}" class="btn btn-danger rojo" style="margin-left:10px">Delete</a>
+                            </div>
+                        @endif
                         <hr>
                         @foreach($image->comments as $comment)
                             <div class="comment">
@@ -80,7 +87,7 @@
                         </div>
                         @endforeach
                     </div>
-                    
+                   
                 </div>
             </div>
             <br>

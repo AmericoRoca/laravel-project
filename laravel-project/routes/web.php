@@ -62,6 +62,7 @@ Route::post('/image/save', [App\Http\Controllers\ImageController::class, 'save']
 Route::get('/image/file/{filename}', [App\Http\Controllers\ImageController::class, 'getImage'])->name('image.file');
 Route::get('/image/{id}', [App\Http\Controllers\ImageController::class, 'detail'])->name('image.detail');
 Route::get('/image/{id}', [App\Http\Controllers\ImageController::class, 'detail'])->name('image.detail');
+Route::get('/image/delete/{id}', [App\Http\Controllers\ImageController::class, 'delete'])->name('image.delete');
 //CommentController
 Route::post('/comment/save', [App\Http\Controllers\CommentController::class, 'save'])->name('comment.save');
 //LikeController

@@ -1,6 +1,6 @@
 
             <div class="card pub-image">
-                <div class="card-header">
+                <div class="card-header"  style="background-color:#1A1A1A;">
                     @if($image->user->image)
                     <div class="container-avatar">
                         <img src="{{route('user.avatar',['filename'=>$image->user->image])}}" class="image-home" />

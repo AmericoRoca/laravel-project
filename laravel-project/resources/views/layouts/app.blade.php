@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Comradsgram') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,12 +23,12 @@
 
 
 </head>
-<body>
+<body style="background-color:#5E5E5E;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#1A1A1A;">
+            <div class="container" style="background-color:#1A1A1A;" >
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Comradsgram') }}
+                    <img src="{{asset('img/logo/comrad-logo.png')}}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -46,45 +46,45 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}" style="color:#F58026">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="color:#F58026">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="{{route('home')}}" class="nav-link">Home</a>
+                                <a href="{{route('home')}}" class="nav-link" style="color:#F58026;">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('likes') }}" class="nav-link">Favs</a>
+                                <a href="{{ route('likes') }}" class="nav-link" style="color:#F58026;">Favs</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('image.create') }}" class="nav-link">Upload Image</a>
+                                <a href="{{ route('image.create') }}" class="nav-link" style="color:#F58026;">Upload Image</a>
                             </li>
                             <li>
                                 @include('includes.avatar')
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color:#F58026;">
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color:#1A1A1A;">
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="{{route('profile',['id'=> Auth::user()->id] )}}">
+                                    <a class="dropdown-item item1" href="{{route('profile',['id'=> Auth::user()->id] )}}" style="color:white;">
                                         Profile
                                     </a>
-                                    <a class="dropdown-item" href="{{route('config')}}">
+                                    <a class="dropdown-item item1" href="{{route('config')}}" style="color:white;">
                                         Config
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item item1" href="{{ route('logout') }}" style="color:white;"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
