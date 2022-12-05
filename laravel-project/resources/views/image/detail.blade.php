@@ -19,7 +19,7 @@
                         </div>
 
                 </div>
-
+                
                 <div class="card-body">
                     
                     <div class="image-container">
@@ -33,17 +33,19 @@
                                 <?php $user_like = true; ?>
                             @endif
                         @endforeach
-
-                        @if($user_like)
-                            <img src="{{asset('img/heart-comrads-orange.png')}}" data-id="{{$image->id}}" class="btn-like"/>
-                            @else
-                            <img src="{{asset('img/heart-comrads-black.png')}}" data-id="{{$image->id}}" class="btn-dislike"/>
-                        @endif
-                        {{count($image->likes)}}
+                        <div style="margin-top:17px; padding:0px; margin-bottom:0px;">
+                            @if($user_like)
+                                <img src="{{asset('img/heart-comrads-orange.png')}}" data-id="{{$image->id}}" class="btn-like"/>
+                                @else
+                                <img src="{{asset('img/heart-comrads-black.png')}}" data-id="{{$image->id}}" class="btn-dislike"/>
+                            @endif
+                            {{count($image->likes)}}
+                            <span class="date-details">{{$image->created_at}}</span>
+                        </div>
                     </div>
                     <br>
+                    <br>
                     <div class="description">
-                        <span class="date-details">{{$image->created_at}}</span>
                         <br>
                         <span class="nickname">{{'@'.$image->user->nick}}</span>
                         <p>{{$image->description}}</p>

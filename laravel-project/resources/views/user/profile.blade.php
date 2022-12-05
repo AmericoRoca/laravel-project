@@ -15,11 +15,13 @@
                     @endif
                
                 <div class="user-info-profile">
-                    <h1>{{'@'.$user->nick}}</h1>
-                    <h2>{{$user->name.''.$user->surname}}</h2>
-                    <p>{{$user->description}}</p>
+                    <h1 style="color:#F58026">{{'@'.$user->nick}}</h1>
+                    <h2 style="color:#F58026">{{$user->name.''.$user->surname}}</h2>
+                    <p style="color:#F58026">{{$user->description}}</p>
                 </div>
             </div>
+            <br>
+            <br>
             <br>
             <br>
             <br>
