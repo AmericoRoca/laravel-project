@@ -54,6 +54,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/config', [App\Http\Controllers\UserController::class, 'config'])->name('config');
 Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 Route::get('/user/avatar/{filename}', [App\Http\Controllers\UserController::class, 'getImage'])->name('user.avatar');
+Route::get('/profile/{id}', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+
 //ImageController
 Route::get('/upload-image', [App\Http\Controllers\ImageController::class, 'create'])->name('image.create');
 Route::post('/image/save', [App\Http\Controllers\ImageController::class, 'save'])->name('image.save');
@@ -65,3 +67,4 @@ Route::post('/comment/save', [App\Http\Controllers\CommentController::class, 'sa
 //LikeController
 Route::get('/like/{image_id}', [App\Http\Controllers\LikesController::class, 'like'])->name('like.save');
 Route::get('/dislike/{image_id}', [App\Http\Controllers\LikesController::class, 'dislike'])->name('like.delete');
+Route::get('/likes', [App\Http\Controllers\LikesController::class, 'index'])->name('likes');

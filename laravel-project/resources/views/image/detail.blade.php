@@ -48,6 +48,7 @@
                         <p>{{$image->description}}</p>
                         
                     </div>
+                
                     <div class="comments">
                         <h2>Comments ({{count($image->comments)}})</h2>
                         <hr>

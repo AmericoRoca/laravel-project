@@ -60,13 +60,16 @@
                                 <a href="{{route('home')}}" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
+                                <a href="{{ route('likes') }}" class="nav-link">Favs</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('image.create') }}" class="nav-link">Upload Image</a>
                             </li>
                             <li>
                                 @include('includes.avatar')
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -75,7 +78,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{route('profile',['id'=> Auth::user()->id] )}}">
                                         Profile
                                     </a>
                                     <a class="dropdown-item" href="{{route('config')}}">
