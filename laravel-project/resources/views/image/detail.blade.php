@@ -48,7 +48,6 @@
                         <p>{{$image->description}}</p>
                         
                     </div>
-                
                     <div class="comments">
                         <h2>Comments ({{count($image->comments)}})</h2>
                         <hr>
@@ -65,8 +64,13 @@
                                     @endif
                             </p>
                             
-                            <button type="submit" class="btn btn-success">Send</button>
+                            <button type="submit" class="btn btn-success" style="float:left; display:inline">Send</button>
                         </form>
+                        @if(Auth::user() && Auth::user()->id == $image->user->id)
+                            <div class="actions" style="width:250px">
+                                <a href="{{route('image.delete', ['id'=>$image->id])}}" class="btn btn-danger rojo" style="margin-left:10px">Delete</a>
+                            </div>
+                        @endif
                         <hr>
                         @foreach($image->comments as $comment)
                             <div class="comment">
@@ -80,7 +84,7 @@
                         </div>
                         @endforeach
                     </div>
-                    
+                   
                 </div>
             </div>
             <br>

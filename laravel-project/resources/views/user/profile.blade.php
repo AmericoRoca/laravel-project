@@ -14,12 +14,16 @@
                         </div>
                     @endif
                
-                <div class="user-info-profile" >
+                <div class="user-info-profile">
                     <h1>{{'@'.$user->nick}}</h1>
                     <h2>{{$user->name.''.$user->surname}}</h2>
                     <p>{{$user->description}}</p>
                 </div>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
             <br>
             <br>
         @foreach($user->images as $image)
