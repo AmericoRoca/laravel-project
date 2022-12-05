@@ -15,6 +15,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 
     <!--Styles-->
     <link href="{{asset('css/style.css')}}" rel="stylesheet"/>
