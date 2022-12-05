@@ -10,9 +10,10 @@
                 <div class="card-header">
                     @if($image->user->image)
                         <div class="container-avatar">
-                            <img src="{{route('user.avatar',['filename'=>$image->user->image])}}" />
+                            <img src="{{ route('user.avatar',['filename'=>$image->user->image]) }}" class="avatar" />
                         </div>
-                    @endif
+                        @endif
+
                         <div class="data-detail">
                             {{$image->user->name.''.$image->user->surname.' | @'.$image->user->nick}}
                         </div>
