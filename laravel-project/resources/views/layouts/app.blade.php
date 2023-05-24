@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Comradsgram') }}</title>
+    <title>{{ config('app.name', 'Clon Instagram') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -28,7 +28,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#1A1A1A;">
             <div class="container" style="background-color:#1A1A1A;" >
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{asset('img/logo/comrad-logo.png')}}" alt="">
+                    
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
