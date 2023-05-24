@@ -7,9 +7,8 @@
         @include('includes.message')
         
         @foreach($images as $image)
-            @if($image)
-                @include('includes.image', ['image'=>$image])
-            @endif
+            @include('includes.image', ['image'=>$image])
+
         @endforeach
        
             <!--pagination-->
