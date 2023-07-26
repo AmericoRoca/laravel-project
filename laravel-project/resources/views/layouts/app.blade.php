@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Clon Instagram') }}</title>
+    <title>{{ config('app.name', 'Laravel Social Media') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,12 +23,12 @@
 
 
 </head>
-<body style="background-color:#5E5E5E;">
+<body style="background-color:white;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#1A1A1A;">
-            <div class="container" style="background-color:#1A1A1A;" >
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#3765AF;">
+            <div class="container" style="background-color:#3765AF;" >
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    
+                    <img src="../public/img/logo/favicon.png" alt="logo" style="width:120px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                     
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -46,34 +46,34 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}" style="color:#F58026">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}" style="color:white">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}" style="color:#F58026">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="color:white">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="{{route('home')}}" class="nav-link" style="color:#F58026;">Home</a>
+                                <a href="{{route('home')}}" class="nav-link" style="color:white;">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('likes') }}" class="nav-link" style="color:#F58026;">Favs</a>
+                                <a href="{{ route('likes') }}" class="nav-link" style="color:white;">Favs</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('image.create') }}" class="nav-link" style="color:#F58026;">Upload Image</a>
+                                <a href="{{ route('image.create') }}" class="nav-link" style="color:white;">Upload Image</a>
                             </li>
                             <li>
                                 @include('includes.avatar')
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color:#F58026;">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color:white;">
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color:#1A1A1A;">
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color:#3765AF;">
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

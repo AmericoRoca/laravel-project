@@ -1,5 +1,5 @@
 <div class="card pub-image">
-    <div class="card-header" style="background-color:#1A1A1A;">
+    <div class="card-header" style="background-color:#3765AF;">
         <?php if($image->user && $image->user->image): ?>
 
             <div class="container-avatar">
