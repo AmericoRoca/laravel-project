@@ -28,7 +28,7 @@
 .pub-image .data-user a{
     font-weight: bold;
     line-height: 50px;
-    color: #C96A22;
+    color: white !important;
     
 }
 
@@ -80,9 +80,9 @@
 .date{
     padding-top: 10px;
 }
-.data-detail{
+.data-detail {
     margin-top: 5px;
-    color: #C96A22;
+    color: white;
 }
 .date-details{
     margin-left: 15px;
@@ -97,6 +97,6 @@
 }
 .item1:hover{
     background-color: none;
-    color:#C96A22;
+    color:white;
 }
 

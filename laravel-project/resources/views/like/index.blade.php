@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 style="color:#F58026">My favourites images</h1>
+            <h1 style="color:#3765AF">My favourites images</h1>
 
             @foreach($likes as $like)
                 @include('includes.image', ['image'=>$like->image])

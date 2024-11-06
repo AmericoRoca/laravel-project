@@ -1,18 +1,19 @@
+<div class="card pub-image">
+    <div class="card-header" style="background-color:#3765AF;">
+        <?php if($image->user && $image->user->image): ?>
 
-            <div class="card pub-image">
-                <div class="card-header"  style="background-color:#1A1A1A;">
-                    @if($image->user->image)
-                    <div class="container-avatar">
-                        <img src="{{route('user.avatar',['filename'=>$image->user->image])}}" class="image-home" />
-                    </div>
-                    @endif
-                    <div class="data-user">
-                        <a href="{{route('profile', ['id'=>$image->user->id])}}" class="home-name">
-                         {{$image->user->name.''.$image->user->surname.' | @'.$image->user->nick}}
-                        </a>
-                    </div>
-
-                </div>
+            <div class="container-avatar">
+                <img src="{{route('user.avatar',['filename'=>$image->user->image])}}" class="image-home" />
+            </div>
+        <?php endif; ?>
+        <div class="data-user">
+            <a href="{{route('profile', ['id'=>$image->user->id])}}" class="home-name">
+                <?php if($image && $image->user): ?>
+                    {{$image->user->name.' '.$image->user->surname.' | @'.$image->user->nick}}
+                <?php endif; ?>
+            </a>
+        </div>
+    </div>
 
                 <div class="card-body">
                     
