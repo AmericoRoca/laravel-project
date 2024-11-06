@@ -1,5 +1,5 @@
-CREATE BATABASE IF NOT EXISTS laravel_master;
-USER laravel_master;
+CREATE DATABASE IF NOT EXISTS laravel_master;
+USE laravel_master;
 
 CREATE TABLE IF NOT EXISTS users(
 

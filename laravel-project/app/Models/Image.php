@@ -11,18 +11,19 @@ class Image extends Model
 
     protected $table = 'images';
 
-    //Relationship 1 to many
-    public function comments(){
+    // Relaciones
+    public function comments()
+    {
         return $this->hasMany('App\Models\Comment')->orderBy('id', 'desc');
     }
 
-    //Relationship 1 to many
-    public function likes(){
+    public function likes()
+    {
         return $this->hasMany('App\Models\Like');
     }
 
-    //Relationship many to 1
-    public function user(){
-        return $this->belongsTo('App\Models\User','user_id');
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 }
