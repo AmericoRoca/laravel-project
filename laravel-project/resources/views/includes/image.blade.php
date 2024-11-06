@@ -1,16 +1,13 @@
 <div class="card pub-image">
-    <div class="card-header" style="background-color:#3765AF;">
-        <?php if($image->user && $image->user->image): ?>
-
+    <div class="card-header" style="background-color:#1A1A1A;">
+        @if($image->user && $image->user->image)
             <div class="container-avatar">
                 <img src="{{route('user.avatar',['filename'=>$image->user->image])}}" class="image-home" />
             </div>
-        <?php endif; ?>
+        @endif
         <div class="data-user">
             <a href="{{route('profile', ['id'=>$image->user->id])}}" class="home-name">
-                <?php if($image && $image->user): ?>
-                    {{$image->user->name.' '.$image->user->surname.' | @'.$image->user->nick}}
-                <?php endif; ?>
+                {{$image->user->name . ' ' . $image->user->surname . ' | @' . $image->user->nick}}
             </a>
         </div>
     </div>
@@ -20,12 +17,12 @@
             <img src="{{route('image.file',['filename'=>$image->image_path])}}" />
         </div>
         <div class="likes">
-            <!-- checks the like of the user-->
+            <!-- Check if the user has liked the image -->
             <?php $user_like = false; ?>
             @foreach($image->likes as $like)
-                <?php if($like->user && $like->user->id == Auth::user()->id): ?>
+                @if($like->user->id == Auth::user()->id)
                     <?php $user_like = true; ?>
-                <?php endif; ?>
+                @endif
             @endforeach
 
             @if($user_like)
@@ -36,7 +33,9 @@
             {{count($image->likes)}}
         </div>
         <div class="comments">
-            <a href="{{route('image.detail', ['id' => $image->id])}}"><img src="{{asset('img/comments-comrads.png')}}" /></a>
+            <a href="{{route('image.detail', ['id' => $image->id])}}">
+                <img src="{{asset('img/comments-comrads.png')}}" />
+            </a>
             {{count($image->comments)}}
         </div>
         <div class="date">
