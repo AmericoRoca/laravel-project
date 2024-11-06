@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color:#1A1A1A; color:#F58026">{{ __('Register') }}</div>
+                <div class="card-header" style="background-color:#3765AF; color:white">{{ __('Register') }}</div>
 
-                <div class="card-body" style="background-color:#5E5E5E;">
+                <div class="card-body" style="background-color:white;">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end" style="color:#F58026">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end" style="color:#3765AF">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="surname" class="col-md-4 col-form-label text-md-end" style="color:#F58026">{{ __('Surname') }}</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-end" style="color:#3765AF">{{ __('Surname') }}</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="nick" class="col-md-4 col-form-label text-md-end" style="color:#F58026">{{ __('Nick') }}</label>
+                            <label for="nick" class="col-md-4 col-form-label text-md-end" style="color:#3765AF">{{ __('Nick') }}</label>
 
                             <div class="col-md-6">
                                 <input id="nick" type="text" class="form-control @error('nick') is-invalid @enderror" name="nick" value="{{ old('nick') }}" required autocomplete="nick" autofocus>
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end" style="color:#F58026">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end" style="color:#3765AF">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end" style="color:#F58026">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end" style="color:#3765AF">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -81,7 +81,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end" style="color:#F58026">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end" style="color:#3765AF">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -90,7 +90,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" style="background-color:#F58026; border-color:#F58026">
+                                <button type="submit" class="btn btn-primary" style="background-color:#3765AF; border-color:#3765AF">
                                     {{ __('Register') }}
                                 </button>
                             </div>

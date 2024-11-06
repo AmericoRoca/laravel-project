@@ -12,36 +12,40 @@ use App\Models\Like;
 
 class ImageController extends Controller
 {
-    //
+    // Asegura que solo usuarios autenticados puedan acceder a este controlador
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function create(){
+    // Muestra el formulario para crear una nueva imagen
+    public function create()
+    {
         return view('image.create');
     }
 
-    public function save(Request $request){
-        //validation
+    // Guarda la imagen en la base de datos y almacena el archivo en el sistema
+    public function save(Request $request)
+    {
+        // Validación
         $validate = $this->validate($request, [
             'description' => 'required',
             'image_path' => 'required|image'
         ]);
 
-        //Pick up the data
+        // Recoge los datos
         $image_path = $request->file('image_path');
         $description = $request->input('description');
 
-        //Asign values to the object
+        // Asigna valores al objeto de la imagen
         $user = \Auth::user();
         $image = new Image();
         $image->user_id = $user->id;
         $image->description = $description;
 
-        //upload file
-        if($image_path){
-            $image_path_name = time().$image_path->getClientOriginalName();
+        // Subir archivo si existe
+        if ($image_path) {
+            $image_path_name = time() . $image_path->getClientOriginalName();
             Storage::disk('images')->put($image_path_name, File::get($image_path));
             $image->image_path = $image_path_name;
         }
@@ -49,59 +53,70 @@ class ImageController extends Controller
         $image->save();
 
         return redirect()->route('home')->with([
-            'message' => 'The image is succesfully uploaded'
+            'message' => 'The image was successfully uploaded'
         ]);
     }
 
-    public function getImage($filename){
-        $file = Storage::disk('images')->get($filename);
-        return new Response($file, 200);
+    // Recupera una imagen almacenada en el sistema
+    public function getImage($filename)
+    {
+        if (Storage::disk('images')->exists($filename)) {
+            $file = Storage::disk('images')->get($filename);
+            return new Response($file, 200);
+        }
+        return abort(404, 'Image not found');
     }
 
-    public function detail($id){
+    // Muestra los detalles de una imagen específica
+    public function detail($id)
+    {
         $image = Image::find($id);
 
-        return view('image/detail', [
+        // Verifica si la imagen existe
+        if (!$image) {
+            return redirect()->route('home')->with('error', 'Image not found');
+        }
+
+        return view('image.detail', [
             'image' => $image
         ]);
     }
 
-    public function delete($id){
+    // Elimina una imagen y todos sus comentarios y likes asociados
+    public function delete($id)
+    {
         $user = \Auth::user();
         $image = Image::find($id);
-        $comments = Comment::where('image_id', $id)->get();
-        $likes = Like::where('image_id', $id)->get();
 
-        if($user && $image && $image->user->id == $user->id){
-            //delete comments
-            if($comments && count($comments)>=1){
-                foreach($comments as $comment){
+        // Verifica si la imagen existe y si el usuario tiene permiso para eliminarla
+        if ($user && $image && $image->user_id == $user->id) {
+            // Elimina los comentarios
+            $comments = Comment::where('image_id', $id)->get();
+            if ($comments) {
+                foreach ($comments as $comment) {
                     $comment->delete();
                 }
             }
 
-            //delete likes
-            if($likes && count($likes)>=1){
-                foreach($likes as $like){
+            // Elimina los likes
+            $likes = Like::where('image_id', $id)->get();
+            if ($likes) {
+                foreach ($likes as $like) {
                     $like->delete();
                 }
             }
 
-            //delete files
+            // Elimina el archivo de imagen
             Storage::disk('images')->delete($image->image_path);
 
-            //delete image
+            // Elimina la entrada de la imagen en la base de datos
             $image->delete();
 
-            $message = array('message' => 'The picture delete susccessfully');
-
+            $message = ['message' => 'The picture was deleted successfully'];
         } else {
-            $message = array('message' => 'The picture doesn´t delete correctly');
+            $message = ['message' => 'The picture could not be deleted'];
         }
+
         return redirect()->route('home')->with($message);
-
-    
     }
-
-    
 }

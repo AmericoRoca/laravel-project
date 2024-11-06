@@ -9,15 +9,15 @@
                 
                     @if($user->image)
                         <div class="img-profile"  style="width:200px; display:inline; float:left; heigth:100px">
-                            <img src="{{route('user.avatar', ['filename'=>$user->image])}}" alt="" style="width:150px; border-radius:50px; border-color:black;" />
+                            <img src="{{route('user.avatar', ['filename'=>$user->image])}}" alt="" style="width:150px; border-radius:50px; border-color:#3765AF;" />
                             
                         </div>
                     @endif
                
                 <div class="user-info-profile">
-                    <h1 style="color:#F58026">{{'@'.$user->nick}}</h1>
-                    <h2 style="color:#F58026">{{$user->name.''.$user->surname}}</h2>
-                    <p style="color:#F58026">{{$user->description}}</p>
+                    <h1 style="color:#3765AF">{{'@'.$user->nick}}</h1>
+                    <h2 style="color:#3765AF">{{$user->name.''.$user->surname}}</h2>
+                    <p style="color:#3765AF">{{$user->description}}</p>
                 </div>
             </div>
             <br>
