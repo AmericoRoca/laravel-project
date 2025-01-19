@@ -8,8 +8,8 @@
             <div class="data-user">
                 
                     @if($user->image)
-                        <div class="img-profile"  style="width:200px; display:inline; float:left; heigth:100px">
-                            <img src="{{route('user.avatar', ['filename'=>$user->image])}}" alt="" style="width:150px; border-radius:50px; border-color:#3765AF;" />
+                        <div class="img-profile"  style="width:200px; display:inline; float:left; heigth:160px">
+                            <img src="{{route('user.avatar', ['filename'=>$user->image])}}" alt="" style="width:150px; heigth:150px !important; border-radius:150px; border-color:#3765AF;" />
                             
                         </div>
                     @endif

@@ -18,7 +18,7 @@
 
                             @if($errors->has('image_path'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{$erros->first('image_path')}}</strong>
+                                    <strong>{{$error->first('image_path')}}</strong>
                                 </span>
                             @endif
                         </div>

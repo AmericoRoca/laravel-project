@@ -25,10 +25,10 @@
 </head>
 <body style="background-color:white;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#3765AF;">
-            <div class="container" style="background-color:#3765AF;" >
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:#0A0A0A;">
+            <div class="container" style="background-color:#0A0A0A; margin-bottom: 1px solid white" >
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="../public/img/logo/favicon.png" alt="logo" style="width:120px;">
+                    <img src="{{ asset('img/logo/favicon.png') }}" alt="logo" style="width:120px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
